@@ -1,0 +1,438 @@
+
+{% load static %}
+
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+ 
+
+  <!-- Favicon -->
+  <link rel="icon" href="{% static 'website/img/core-img/favicon.ico' %}">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}">
+
+</head>
+
+<body>
+  <!-- ***** Header Area Start ***** -->
+   <!-- Main Header Start -->
+   <div class="main-header-area">
+    <div class="classy-nav-container breakpoint-off">
+      <div class="container">
+        <!-- Classy Menu -->
+        <nav class="classy-navbar justify-content-between" id="dentoNav">
+
+          <!-- Logo -->
+          <a class="nav-brand" href="{% url 'home' %}"><img src="{% static 'website/img/core-img/logo.png' %}" alt=""></a>
+
+          <!-- Navbar Toggler -->
+          <div class="classy-navbar-toggler">
+            <span class="navbarToggler"><span></span><span></span><span></span></span>
+          </div>
+
+          <!-- Menu -->
+          <div class="classy-menu">
+
+            <!-- Close Button -->
+            <div class="classycloseIcon">
+              <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+            </div>
+
+            <!-- Nav Start -->
+            <div class="classynav">
+              <ul id="nav">
+                
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'pricing' %}">Pricing</a></li>
+                
+                <li><a href="{% url 'bookservice' %}">Bookservice</a></li>
+                <li><a href="{% url 'shop' %}">Shop</a></li>
+                <li><a href="{% url 'survey' %}">Survey</a></li>
+                <li><a href="{% url 'booknow' %}">Booknow</a></li>
+               
+               
+               
+                
+              </ul>
+            </div>
+            <!-- Nav End -->
+          </div>
+
+          <!-- Booking Now Button -->
+          
+          <a href="{% url 'logout' %}" class="btn dento-btn booking-btn">logout</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- ***** Header Area End ***** -->
+
+  
+
+  <!-- ***** Breadcrumb Area Start ***** -->
+  
+  <!-- ***** Breadcrumb Area End ***** -->
+
+
+  
+
+
+
+
+  <!-- ***** Services Area Start ***** -->
+
+<!-- Dento Service Area Start -->
+<section class="dento-service-area section-padding-100-0 bg-img bg-gradient-overlay jarallax clearfix" style="background-image: url('./static/website/img/bg-img/13.jpg');">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Service Content -->
+      <div class="col-12 col-lg-6">
+        <div class="service-content mb-30">
+          <!-- Section Heading -->
+          <div class="section-heading white">
+            <h2>Our Services</h2>
+            <div class="line"></div>
+          </div>
+
+          <div class="row">
+            <!-- Single Service -->
+            <div class="col-6 col-md-4">
+              <div class="single-service mb-70">
+                <img src="{% static 'website/img/core-img/s1.png' %}" alt="">
+                <h6>Teeth Whitening</h6>
+              </div>
+            </div>
+
+            <!-- Single Service -->
+            <div class="col-6 col-md-4">
+              <div class="single-service mb-70">
+                <img src="{% static 'website/img/core-img/s2.png' %}" alt="">
+                <h6>Missing Teeth</h6>
+              </div>
+            </div>
+
+            <!-- Single Service -->
+            <div class="col-6 col-md-4">
+              <div class="single-service mb-70">
+                <img src="{% static 'website/img/core-img/s3.png' %}" alt="">
+                <h6>Teeth Whitening</h6>
+              </div>
+            </div>
+
+            <!-- Single Service -->
+            <div class="col-6 col-md-4">
+              <div class="single-service mb-70">
+                <img src="{% static 'website/img/core-img/s4.png' %}" alt="">
+                <h6>Cosmetic Dentistry</h6>
+              </div>
+            </div>
+
+            <!-- Single Service -->
+            <div class="col-6 col-md-4">
+              <div class="single-service mb-70">
+                <img src="{% static 'website/img/core-img/s5.png' %}" alt="">
+                <h6>Examination</h6>
+              </div>
+            </div>
+
+            <!-- Single Service -->
+            <div class="col-6 col-md-4">
+              <div class="single-service mb-70">
+                <img src="{% static 'website/img/core-img/s1.png' %}" alt="">
+                <h6>Teeth Pain</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Area -->
+      <div class="col-12 col-lg-6">
+        <div class="dento-video-area mb-100">s
+         
+          <source src="{% static 'vedio/myvedio.mp4' %}" type="video/mp4">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Dento Service Area End -->
+
+
+
+     
+
+  <!-- ***** Testimonials Area Start ***** -->
+  
+  <!-- ***** Testimonials Area End ***** -->
+
+  <!-- ***** Dento Dentist Area Start ***** -->
+  <section class="dentist-area section-padding-100-0">
+    <div class="container">
+      <div class="row">
+        <!-- Section Heading -->
+        <div class="col-12">
+          <div class="section-heading text-center">
+            <h2>Our Dentist</h2>
+            <div class="line"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Single Dentist Area -->
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="single-dentist-area mb-100">
+            <img src="{% static 'website/img/bg-img/9.png' %}" alt="">
+            <!-- Dentist Content -->
+            <div class="dentist-content">
+              <!-- Social Info -->
+              <div class="dentist-social-info">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-google-plus"></i></a>
+              </div>
+              <!-- Dentist Info -->
+              <div class="dentist-info bg-gradient-overlay">
+                <h5>Michael Barley</h5>
+                <p>Implant Expert</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single Dentist Area -->
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="single-dentist-area mb-100">
+            <img src="{% static 'website/img/bg-img/10.png' %}" alt="">
+            <!-- Dentist Content -->
+            <div class="dentist-content">
+              <!-- Social Info -->
+              <div class="dentist-social-info">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-google-plus"></i></a>
+              </div>
+              <!-- Dentist Info -->
+              <div class="dentist-info bg-gradient-overlay">
+                <h5>Michael Barley</h5>
+                <p>Implant Expert</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single Dentist Area -->
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="single-dentist-area mb-100">
+            <img src="{% static 'website/img/bg-img/11.png' %}" alt="">
+            <!-- Dentist Content -->
+            <div class="dentist-content">
+              <!-- Social Info -->
+              <div class="dentist-social-info">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-google-plus"></i></a>
+              </div>
+              <!-- Dentist Info -->
+              <div class="dentist-info bg-gradient-overlay">
+                <h5>Michael Barley</h5>
+                <p>Implant Expert</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ***** Dento Dentist Area End ***** -->
+
+  <!-- ***** Blog Area Start ***** -->
+  <section class="dento-blog-area section-padding-100-0 clearfix">
+    <div class="container">
+      <div class="row">
+        <!-- Section Heading -->
+        <div class="col-12">
+          <div class="section-heading text-center">
+            <h2>The Latest News</h2>
+            <div class="line"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Single Blog Item -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="single-blog-item mb-100">
+            <a href="./blog-details.html">
+              <img src="./img/bg-img/4.jpg" alt="">
+            </a>
+            <!-- Blog Content -->
+            <div class="blog-content">
+              <a href="./blog-details.html" class="post-title">How your mouth bacteria can harm your lungs</a>
+              <p>Donec tempor, lorem et euismod eleifend, est lectus laoreet ante, sed accusan justo diam ...</p>
+              <div class="post-meta">
+                <a href="#"><i class="icon_clock_alt"></i> 28 Sep 2018</a>
+                <a href="#"><i class="icon_chat_alt"></i> 3 Comments</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single Blog Item -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="single-blog-item mb-100">
+            <a href="./blog-details.html">
+              <img src="./img/bg-img/5.jpg" alt="">
+            </a>
+            <!-- Blog Content -->
+            <div class="blog-content">
+              <a href="./blog-details.html" class="post-title">What is the best kind of toothpaste to use?</a>
+              <p>Donec tempor, lorem et euismod eleifend, est lectus laoreet ante, sed accusan justo diam ...</p>
+              <div class="post-meta">
+                <a href="#"><i class="icon_clock_alt"></i> 28 Sep 2018</a>
+                <a href="#"><i class="icon_chat_alt"></i> 3 Comments</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single Blog Item -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="single-blog-item mb-100">
+            <a href="./blog-details.html">
+              <img src="./img/bg-img/6.jpg" alt="">
+            </a>
+            <!-- Blog Content -->
+            <div class="blog-content">
+              <a href="./blog-details.html" class="post-title">Why you should avoid sipping your drinks</a>
+              <p>Donec tempor, lorem et euismod eleifend, est lectus laoreet ante, sed accusan justo diam ...</p>
+              <div class="post-meta">
+                <a href="#"><i class="icon_clock_alt"></i> 28 Sep 2018</a>
+                <a href="#"><i class="icon_chat_alt"></i> 3 Comments</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ***** Blog Area End ***** -->
+
+  <!-- ***** Footer Area Start ***** -->
+  <footer class="footer-area bg-img bg-gradient-overlay" style="background-image: url('./../../static/website/img/bg-img/3.jpg');">
+    <div class="container">
+      <div class="row">
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="single-footer-widget">
+            <a href="./home.html" class="d-block mb-4"><img src="{% static 'website/img/core-img/logo.png' %}" alt=""></a>
+            <p>Etiam sutor risus, dapibus act elefend katen, lacinia sitamet denim. Mauris sagittis kansa interdum dignissim.</p>
+            <div class="footer-contact">
+              <p><i class="icon_pin"></i> #91/4, Indira road, West society, Farmgate</p>
+              <p><i class="icon_phone"></i> +8801765-65454</p>
+              <p><i class="icon_mail"></i> ally@gmail.com</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg">
+          <div class="single-footer-widget">
+            <!-- Widget Title -->
+            <h5 class="widget-title">Opening Hours</h5>
+
+            <!-- Opening Hours -->
+            <ul class="opening-hours">
+              <li><span>Mon-Wed</span> <span>8.00-18.00</span></li>
+              <li><span>Thu-Fri</span> <span>8.00-17.00</span></li>
+              <li><span>Sat</span> <span>9.00-17.00</span></li>
+              <li><span>Sun</span> <span>10.00-17.00</span></li>
+              <li><span>Holiday</span> <span>Closed</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg">
+          <div class="single-footer-widget">
+            <!-- Widget Title -->
+            <h5 class="widget-title">Quick Link</h5>
+
+            <!-- Quick Links Nav -->
+            <nav>
+              <ul class="quick-links">
+                <li><a href="#">About</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Policy</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Advisors</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Dentist</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Legals</a></li>
+
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg">
+          <div class="single-footer-widget">
+            <!-- Widget Title -->
+            <h5 class="widget-title">Newsletter</h5>
+
+            <p>We will send out weekly newest article and some great offers</p>
+            <!-- Newsletter Form -->
+            <div class="footer-newsletter-form">
+              <form action="#" method="post">
+                <input type="email" name="nl-email" value="" placeholder="Email Address">
+                <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+              </form>
+            </div>
+
+            <!-- Social Info -->
+            <div class="footer-social-info">
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copywrite Area -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="copywrite-content">
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- ***** Footer Area End ***** -->
+
+
+
+      </body>
+</html>
+{% endblock %}

@@ -1,0 +1,108 @@
+
+
+{% load static %}
+
+
+
+{% block content %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Health Survey</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f7f7f7; padding: 20px;">
+
+    <h2 style="text-align: center; color: #333;">Dental Health Survey</h2>
+
+    <form id="surveyForm" style="max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        
+        <div style="margin-bottom: 20px;">
+            <label for="question1" style="display: block; margin-bottom: 10px; color: #555;">1. How often do you visit the dentist?</label>
+            <select id="question1" name="question1" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                <option value="">Select an option</option>
+                <option value="every_6_months">Every 6 months</option>
+                <option value="once_a_year">Once a year</option>
+                <option value="only_when_needed">Only when needed</option>
+                <option value="never">Never</option>
+            </select>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label for="question2" style="display: block; margin-bottom: 10px; color: #555;">2. How satisfied are you with your current dental care provider?</label>
+            <select id="question2" name="question2" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                <option value="">Select an option</option>
+                <option value="very_satisfied">Very Satisfied</option>
+                <option value="satisfied">Satisfied</option>
+                <option value="neutral">Neutral</option>
+                <option value="dissatisfied">Dissatisfied</option>
+                <option value="very_dissatisfied">Very Dissatisfied</option>
+            </select>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label for="question3" style="display: block; margin-bottom: 10px; color: #555;">3. What type of dental services are most important to you?</label>
+            <select id="question3" name="question3" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                <option value="">Select an option</option>
+                <option value="cleanings">Cleanings</option>
+                <option value="whitening">Whitening</option>
+                <option value="fillings">Fillings</option>
+                <option value="orthodontics">Orthodontics</option>
+                <option value="implants">Implants</option>
+            </select>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label for="question4" style="display: block; margin-bottom: 10px; color: #555;">4. How do you rate the importance of dental hygiene education?</label>
+            <select id="question4" name="question4" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                <option value="">Select an option</option>
+                <option value="very_important">Very Important</option>
+                <option value="important">Important</option>
+                <option value="somewhat_important">Somewhat Important</option>
+                <option value="not_important">Not Important</option>
+            </select>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label for="question4" style="display: block; margin-bottom: 10px; color: #555;">5. What type of toothbrush do you use?</label>
+            <select id="question4" name="question4" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                <option value="">Select an option</option>
+                <option value="very_important">Electric</option>
+                <option value="important">Manual</option>
+                <option value="somewhat_important">I dont use toothbrush regularly</option>
+                
+            </select>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label for="question4" style="display: block; margin-bottom: 10px; color: #555;">6. How often do you floss?</label>
+            <select id="question4" name="question4" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                <option value="">Select an option</option>
+                <option value="very_important">Daily</option>
+                <option value="important">A few times a week</option>
+                <option value="somewhat_important">Occasionally</option>
+                <option value="somewhat_important">Never</option>
+                
+            </select>
+        </div>
+
+        <button type="submit" style="width: 100%; padding: 15px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Submit</button>
+        
+    </form>
+
+    <script>
+        document.getElementById('surveyForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+            alert('Thank you for completing the survey!');
+            window.location.href = '/view.html'; // Redirect to home page
+        });
+    </script>
+    
+</body>
+</html>
+
+{% endblock %}

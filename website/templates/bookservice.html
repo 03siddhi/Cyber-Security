@@ -1,0 +1,75 @@
+
+{% load static %}
+
+
+
+{% block content %}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+     <!-- Title -->
+  <title>{% block title %}Dento{% endblock %}</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="{% static 'website/img/core-img/favicon.ico' %}">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}">
+
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f7f7f7; padding: 20px;">
+
+    <h2 style="text-align: center; color: #333;">Book a Service</h2>
+    
+    <form  method="post"  id="bookingForm"   style="max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        {% csrf_token %}
+        <label for="name" style="display: block; margin-bottom: 10px; color: #555;">Full Name</label>
+        <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 4px;">
+
+        <label for="email" style="display: block; margin-bottom: 10px; color: #555;">Email Address</label>
+        <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 4px;">
+
+        <label for="phone" style="display: block; margin-bottom: 10px; color: #555;">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 4px;">
+
+        <label for="service" style="display: block; margin-bottom: 10px; color: #555;">Service</label>
+        <select id="service" name="service" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 4px;">
+            <option value="">Select a Service</option>
+            <option value="cleaning">Teeth Cleaning</option>
+            <option value="whitening">Teeth Whitening</option>
+            <option value="checkup">Dental Checkup</option>
+            <option value="braces">Braces Consultation</option>
+        </select>
+
+        <label for="date" style="display: block; margin-bottom: 10px; color: #555;">Preferred Date</label>
+        <input type="date" id="date" name="date" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 4px;">
+
+        <label for="time" style="display: block; margin-bottom: 10px; color: #555;">Preferred Time</label>
+        <input type="time" id="time" name="time" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 4px;">
+
+        <button type="submit" style="width: 100%; padding: 15px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Submit</button>
+
+    </form>
+
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+
+            // Simulate a successful form submission
+            setTimeout(function() {
+                alert('Your service is booked!');
+                window.location.href = '/view.html'; // Redirect to home page
+            }, 1000); // Simulate a delay for demonstration purposes
+        });
+    </script>
+    
+</body>
+</html>
+{% endblock %}

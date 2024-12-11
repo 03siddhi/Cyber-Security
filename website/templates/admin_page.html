@@ -1,0 +1,471 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="icon" href="{% static 'website/img/core-img/favicon.ico' %}">
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="{% static 'website/css/style.css' %}">
+  
+
+
+
+
+
+
+    <script>
+        function confirmAppointment(id) {
+            alert('Appointment ' + id + ' confirmed.');
+        }
+
+        function cancelAppointment(id) {
+            alert('Appointment ' + id + ' canceled.');
+        }
+
+        function batchConfirm() {
+            alert('Batch confirm appointments.');
+        }
+
+        function batchCancel() {
+            alert('Batch cancel appointments.');
+        }
+
+        function markAsShipped(orderId) {
+            alert('Order ' + orderId + ' marked as shipped.');
+        }
+
+        function cancelOrder(orderId) {
+            alert('Order ' + orderId + ' canceled.');
+        }
+
+        function batchShip() {
+            alert('Batch ship orders.');
+        }
+
+        function batchCancelOrders() {
+            alert('Batch cancel orders.');
+        }
+    </script>
+</head>
+<!--max-width: 1200px;-->
+
+
+<body style="font-family: Arial, sans-serif;  margin: 0 auto; background-color: #49b2bb;">
+    <h1 style="text-align: center;font-family: Arial, sans-serif;">Admin Panel</h1>
+     <!-- Main Header Start -->
+     <div class="main-header-area">
+        <div class="classy-nav-container breakpoint-off">
+          <div class="container">
+            <!-- Classy Menu -->
+            <nav class="classy-navbar justify-content-between" id="dentoNav">
+  
+              <!-- Logo -->
+              <a class="nav-brand" href="{% url 'home' %}"><img src="{% static 'website/img/core-img/logo.png' %}" alt=""></a>
+  
+              <!-- Navbar Toggler -->
+              <div class="classy-navbar-toggler">
+                <span class="navbarToggler"><span></span><span></span><span></span></span>
+              </div>
+  
+              <!-- Menu -->
+              <div class="classy-menu">
+  
+                <!-- Close Button -->
+                <div class="classycloseIcon">
+                  <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                </div>
+  
+                <!-- Nav Start -->
+                <div class="classynav">
+                  <ul id="nav">
+                    
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'status' %}">Status</a></li>
+                   
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                   
+                    
+                  </ul>
+                </div>
+                <!-- Nav End -->
+              </div>
+  
+              <!-- Booking Now Button -->
+              <a href="{% url 'login' %}" class="btn dento-btn booking-btn">Login</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--Header end-->
+
+
+    
+    <!-- Appointments Section 
+    <div style="background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-bottom: 20px; min-width: 300px;" id="appointments">
+        <h2 style="margin-top: 0;">Manage Appointments</h2>
+        <form id="appointmentsForm">
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 10px; text-align: center;">Select</th>
+                        <th style="border: 1px solid #ddd; padding: 10px;">ID</th>
+                        <th style="border: 1px solid #ddd; padding: 10px;">Patient Name</th>
+                        <th style="border: 1px solid #ddd; padding: 10px;">Date</th>
+                        <th style="border: 1px solid #ddd; padding: 10px;">Time</th>
+                        <th style="border: 1px solid #ddd; padding: 10px;">Status</th>
+                        <th style="border: 1px solid #ddd; padding: 10px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="appointmentsTable">
+                    Example rows 
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px; text-align: center;"><input type="checkbox" name="appointment_ids" value="1"></td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">1</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">Riddhi Uniyal</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">2024-07-23</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">10:00 AM</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">Pending</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">
+                            <button type="button" style="padding: 10px 20px; color: #fff; background: #28a745; border: none; border-radius: 5px; cursor: pointer;" onclick="confirmAppointment(1)">Confirm</button>
+                            <button type="button" style="padding: 10px 20px; color: #fff; background: #dc3545; border: none; border-radius: 5px; cursor: pointer; margin-left: 5px;" onclick="cancelAppointment(1)">Cancel</button>
+                        </td>
+                    </tr>
+                    <tr>
+                      <td style="border: 1px solid #ddd; padding: 10px; text-align: center;"><input type="checkbox" name="appointment_ids" value="1"></td>
+                      <td style="border: 1px solid #ddd; padding: 10px;">2</td>
+                      <td style="border: 1px solid #ddd; padding: 10px;">Shreya Mishra</td>
+                      <td style="border: 1px solid #ddd; padding: 10px;">2024-07-20</td>
+                      <td style="border: 1px solid #ddd; padding: 10px;">10:30 AM</td>
+                      <td style="border: 1px solid #ddd; padding: 10px;">Pending</td>
+                      <td style="border: 1px solid #ddd; padding: 10px;">
+                          <button type="button" style="padding: 10px 20px; color: #fff; background: #28a745; border: none; border-radius: 5px; cursor: pointer;" onclick="confirmAppointment(1)">Confirm</button>
+                          <button type="button" style="padding: 10px 20px; color: #fff; background: #dc3545; border: none; border-radius: 5px; cursor: pointer; margin-left: 5px;" onclick="cancelAppointment(1)">Cancel</button>
+                      </td>
+                  </tr>
+                  <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px; text-align: center;"><input type="checkbox" name="appointment_ids" value="1"></td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">2</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Anushka Srivastava</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">2024-07-12</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">11:30 AM</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Pending</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">
+                        <button type="button" style="padding: 10px 20px; color: #fff; background: #28a745; border: none; border-radius: 5px; cursor: pointer;" onclick="confirmAppointment(1)">Confirm</button>
+                        <button type="button" style="padding: 10px 20px; color: #fff; background: #dc3545; border: none; border-radius: 5px; cursor: pointer; margin-left: 5px;" onclick="cancelAppointment(1)">Cancel</button>
+                    </td>
+                </tr>
+                    Add more rows as needed 
+                </tbody>
+            </table>
+            <br>
+            <button type="button" style="padding: 10px 20px; color: #fff; background: #007bff; border: none; border-radius: 5px; cursor: pointer;" onclick="batchConfirm()">Batch Confirm</button>
+            <button type="button" style="padding: 10px 20px; color: #fff; background: #dc3545; border: none; border-radius: 5px; cursor: pointer; margin-left: 5px;" onclick="batchCancel()">Batch Cancel</button>
+        </form>
+    </div>
+    Shop Details Section 
+    <div style="background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-bottom: 20px; min-width: 300px;" id="shop">
+        <h2 style="margin-top: 0;">Shop Details</h2>
+        <form id="shopForm">
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ddd; padding: 10px; text-align: center;">Select</th>
+                        <th style="border: 1px solid #ddd; padding: 10px;">Order ID</th>
+                        <th style="border: 1px solid #ddd; padding: 10px;">User Name</th>
+                        <th style="border: 1px solid #ddd; padding: 10px;">Item</th>
+                        <th style="border: 1px solid #ddd; padding: 10px;">Quantity</th>
+                        <th style="border: 1px solid #ddd; padding: 10px;">Total Price</th>
+                        <th style="border: 1px solid #ddd; padding: 10px;">Status</th>
+                        <th style="border: 1px solid #ddd; padding: 10px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="shopTable">
+                     Example rows 
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px; text-align: center;"><input type="checkbox" name="order_ids" value="101"></td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">101</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">Riddhi Uniyal</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">Toothbrush</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">2</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">Rs 80.00</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">Shipped</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">
+                            <button type="button" style="padding: 10px 20px; color: #fff; background: #007bff; border: none; border-radius: 5px; cursor: pointer;" onclick="markAsShipped(101)">Mark as Shipped</button>
+                            <button type="button" style="padding: 10px 20px; color: #fff; background: #dc3545; border: none; border-radius: 5px; cursor: pointer; margin-left: 5px;" onclick="cancelOrder(101)">Cancel Order</button>
+                        </td>
+                    </tr>
+                    <tr>
+                      <td style="border: 1px solid #ddd; padding: 10px; text-align: center;"><input type="checkbox" name="order_ids" value="101"></td>
+                      <td style="border: 1px solid #ddd; padding: 10px;">103</td>
+                      <td style="border: 1px solid #ddd; padding: 10px;">Anushka Srivastava</td>
+                      <td style="border: 1px solid #ddd; padding: 10px;">Toothbrush</td>
+                      <td style="border: 1px solid #ddd; padding: 10px;">2</td>
+                      <td style="border: 1px solid #ddd; padding: 10px;">Rs 180.00</td>
+                      <td style="border: 1px solid #ddd; padding: 10px;">Shipped</td>
+                      <td style="border: 1px solid #ddd; padding: 10px;">
+                          <button type="button" style="padding: 10px 20px; color: #fff; background: #007bff; border: none; border-radius: 5px; cursor: pointer;" onclick="markAsShipped(101)">Mark as Shipped</button>
+                          <button type="button" style="padding: 10px 20px; color: #fff; background: #dc3545; border: none; border-radius: 5px; cursor: pointer; margin-left: 5px;" onclick="cancelOrder(101)">Cancel Order</button>
+                      </td>
+                  </tr>
+                     Add more rows as needed 
+                </tbody>
+            </table>
+            <br>
+            <button type="button" style="padding: 10px 20px; color: #fff; background: #007bff; border: none; border-radius: 5px; cursor: pointer;" onclick="batchShip()">Batch Ship</button>
+            <button type="button" style="padding: 10px 20px; color: #fff; background: #dc3545; border: none; border-radius: 5px; cursor: pointer; margin-left: 5px;" onclick="batchCancelOrders()">Batch Cancel</button>
+        </form>
+    </div>
+     Logged In Users Section 
+    <div style="background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-bottom: 20px; min-width: 300px;" id="logged-in">
+        <h2 style="margin-top: 0;">Logged In Users</h2>
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid #ddd; padding: 10px;">ID</th>
+                    <th style="border: 1px solid #ddd; padding: 10px;">Username</th>
+                    <th style="border: 1px solid #ddd; padding: 10px;">Login Time</th>
+                </tr>
+            </thead>
+            <tbody id="loggedInTable">
+                 Example rows 
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px;">1</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">admin</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">2024-07-22 08:00 AM</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #ddd; padding: 10px;">2</td>
+                  <td style="border: 1px solid #ddd; padding: 10px;">Riddhi Uniyal</td>
+                  <td style="border: 1px solid #ddd; padding: 10px;">2024-07-22 08:00 AM</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #ddd; padding: 10px;">3</td>
+                <td style="border: 1px solid #ddd; padding: 10px;">Shreya Mishra</td>
+                <td style="border: 1px solid #ddd; padding: 10px;">2024-07-20 10:00 AM</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 10px;">4</td>
+              <td style="border: 1px solid #ddd; padding: 10px;">Anushka Srivastava</td>
+              <td style="border: 1px solid #ddd; padding: 10px;">2024-07-12 10:30 AM</td>
+          </tr>
+                 Add more rows as needed 
+            </tbody>
+        </table>
+    </div>
+     Contacted Users Section 
+    <div style="background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-bottom: 20px; min-width: 300px;" id="contacted">
+        <h2 style="margin-top: 0;">Contacted Users</h2>
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid #ddd; padding: 10px;">ID</th>
+                    <th style="border: 1px solid #ddd; padding: 10px;">Username</th>
+                    <th style="border: 1px solid #ddd; padding: 10px;">Contact Date</th>
+                    <th style="border: 1px solid #ddd; padding: 10px;">Message</th>
+                </tr>
+            </thead>
+            <tbody id="contactedTable">
+                 Example rows 
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px;">1</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Riddhi Uniyal</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">2024-07-20</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Inquiry about dental services.</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #ddd; padding: 10px;">2</td>
+                  <td style="border: 1px solid #ddd; padding: 10px;">Anushka Srivastava</td>
+                  <td style="border: 1px solid #ddd; padding: 10px;">2024-07-19</td>
+                  <td style="border: 1px solid #ddd; padding: 10px;">Inquiry about dental services.</td>
+              </tr>
+                 Add more rows as needed 
+            </tbody>
+        </table>
+    </div>
+     Bookings Section 
+    <div style="background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-bottom: 20px; min-width: 300px;" id="bookings">
+        <h2 style="margin-top: 0;">Service Bookings</h2>
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid #ddd; padding: 10px;">ID</th>
+                    <th style="border: 1px solid #ddd; padding: 10px;">Username</th>
+                    <th style="border: 1px solid #ddd; padding: 10px;">Service</th>
+                    <th style="border: 1px solid #ddd; padding: 10px;">Booking Date</th>
+                    <th style="border: 1px solid #ddd; padding: 10px;">Status</th>
+                </tr>
+            </thead>
+            <tbody id="bookingsTable">
+                 Example rows 
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px;">1</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Riddhi Uniyal</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Cleaning</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">2024-07-22</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Confirmed</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #ddd; padding: 10px;">2</td>
+                  <td style="border: 1px solid #ddd; padding: 10px;">Shreya Mishra</td>
+                  <td style="border: 1px solid #ddd; padding: 10px;">Cleaning</td>
+                  <td style="border: 1px solid #ddd; padding: 10px;">2024-07-20</td>
+                  <td style="border: 1px solid #ddd; padding: 10px;">Confirmed</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #ddd; padding: 10px;">3</td>
+                <td style="border: 1px solid #ddd; padding: 10px;">Anushka Srivastava</td>
+                <td style="border: 1px solid #ddd; padding: 10px;">Cleaning</td>
+                <td style="border: 1px solid #ddd; padding: 10px;">2024-07-12</td>
+                <td style="border: 1px solid #ddd; padding: 10px;">Confirmed</td>
+            </tr>
+                 Add more rows as needed 
+            </tbody>
+        </table>
+    </div>
+     Confirmed Services Section
+    <div style="background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-bottom: 20px; min-width: 300px;" id="confirmed-services">
+        <h2 style="margin-top: 0;">Confirmed Services</h2>
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid #ddd; padding: 10px;">ID</th>
+                    <th style="border: 1px solid #ddd; padding: 10px;">Username</th>
+                    <th style="border: 1px solid #ddd; padding: 10px;">Service</th>
+                    <th style="border: 1px solid #ddd; padding: 10px;">Confirmation Date</th>
+                </tr>
+            </thead>
+            <tbody id="confirmedServicesTable">
+                 Example rows 
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px;">1</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Anushka Srivastava</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Filling</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">2024-07-21</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #ddd; padding: 10px;">2</td>
+                  <td style="border: 1px solid #ddd; padding: 10px;">Riddhi Uniyal</td>
+                  <td style="border: 1px solid #ddd; padding: 10px;">Teeth Whitening</td>
+                  <td style="border: 1px solid #ddd; padding: 10px;">2024-07-20</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #ddd; padding: 10px;">3</td>
+                <td style="border: 1px solid #ddd; padding: 10px;">Shreya Mishra</td>
+                <td style="border: 1px solid #ddd; padding: 10px;">Dental Checkup</td>
+                <td style="border: 1px solid #ddd; padding: 10px;">2024-07-12</td>
+            </tr>
+                 Add more rows as needed 
+            </tbody>
+        </table>
+    </div>-->
+<!-- ***** Footer Area Start ***** -->
+<footer class="footer-area bg-img bg-gradient-overlay" style="background-image: url('./../../static/website/img/bg-img/3.jpg');">
+    <div class="container">
+      <div class="row">
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="single-footer-widget">
+            <a href="./home.html" class="d-block mb-4"><img src="{% static 'website/img/core-img/logo.png' %}" alt=""></a>
+            <p>Etiam sutor risus, dapibus act elefend katen, lacinia sitamet denim. Mauris sagittis kansa interdum dignissim.</p>
+            <div class="footer-contact">
+              <p><i class="icon_pin"></i> #91/4, Indira road, West society, Farmgate</p>
+              <p><i class="icon_phone"></i> +8801765-65454</p>
+              <p><i class="icon_mail"></i> ally@gmail.com</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg">
+          <div class="single-footer-widget">
+            <!-- Widget Title -->
+            <h5 class="widget-title">Opening Hours</h5>
+
+            <!-- Opening Hours -->
+            <ul class="opening-hours">
+              <li><span>Mon-Wed</span> <span>8.00-18.00</span></li>
+              <li><span>Thu-Fri</span> <span>8.00-17.00</span></li>
+              <li><span>Sat</span> <span>9.00-17.00</span></li>
+              <li><span>Sun</span> <span>10.00-17.00</span></li>
+              <li><span>Holiday</span> <span>Closed</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg">
+          <div class="single-footer-widget">
+            <!-- Widget Title -->
+            <h5 class="widget-title">Quick Link</h5>
+
+            <!-- Quick Links Nav -->
+            <nav>
+              <ul class="quick-links">
+                <li><a href="#">About</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Policy</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Advisors</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Dentist</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Legals</a></li>
+
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg">
+          <div class="single-footer-widget">
+            <!-- Widget Title -->
+            <h5 class="widget-title">Newsletter</h5>
+
+            <p>We will send out weekly newest article and some great offers</p>
+            <!-- Newsletter Form -->
+            <div class="footer-newsletter-form">
+              <form action="#" method="post">
+                <input type="email" name="nl-email" value="" placeholder="Email Address">
+                <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+              </form>
+            </div>
+
+            <!-- Social Info -->
+            <div class="footer-social-info">
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copywrite Area -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="copywrite-content">
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- ***** Footer Area End ***** -->
+
+
+
+
+
+</body>
+</html>

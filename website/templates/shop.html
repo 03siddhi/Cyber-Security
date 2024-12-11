@@ -1,0 +1,128 @@
+
+{% load static %}
+
+
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Shop</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+
+    <div style="margin-bottom: 20px;">
+        <button onclick="viewCart()" style="background-color: #ff2a00;  border: none; border-radius: 5px; padding: 10px; font-size: 16px; cursor: pointer;">
+            Cart (<span id="totalItems">0</span>)
+        </button>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+        <!-- Item 1 -->
+        <div class="item" style="border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); padding: 20px; margin: 10px; width: 200px;">
+            <img src="{% static 'images/toothbrush.jpg' %}" alt="Toothbrush" style="width: 100%; height: auto; border-radius: 10px;">
+            <div style="font-size: 18px; margin: 10px 0;">Toothbrush</div>
+            <div style="font-size: 16px; color: #28a745;">Rs 80</div>
+            <div style="display: flex; align-items: center; justify-content: center; margin-top: 10px;">
+                <button onclick="decreaseQuantity('quantity1')" style="background-color: #0edc1c; color: #fff; border: none; border-radius: 50%; padding: 10px; font-size: 16px; cursor: pointer;">-</button>
+                <input type="text" id="quantity1" value="0" readonly style="width: 40px; height: 30px; text-align: center; margin: 0 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+                <button onclick="increaseQuantity('quantity1')" style="background-color: #0edc1c; color: #fff; border: none; border-radius: 50%; padding: 10px; font-size: 16px; cursor: pointer;">+</button>
+            </div>
+        </div>
+        <!-- Item 2 -->
+        <div class="item" style="border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); padding: 20px; margin: 10px; width: 200px;">
+            <img src="{% static 'images/toothpaste.jpg' %}" alt="Toothpaste" style="width: 100%; height: auto; border-radius: 10px;">
+            <div style="font-size: 18px; margin: 10px 0;">Toothpaste</div>
+            <div style="font-size: 16px; color: #28a745;">Rs 120</div>
+            <div style="display: flex; align-items: center; justify-content: center; margin-top: 10px;">
+                <button onclick="decreaseQuantity('quantity2')" style="background-color: #0edc1c; color: #fff; border: none; border-radius: 50%; padding: 10px; font-size: 16px; cursor: pointer;">-</button>
+                <input type="text" id="quantity2" value="0" readonly style="width: 40px; height: 30px; text-align: center; margin: 0 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+                <button onclick="increaseQuantity('quantity2')" style="background-color: #0edc1c; color: #fff; border: none; border-radius: 50%; padding: 10px; font-size: 16px; cursor: pointer;">+</button>
+            </div>
+        </div>
+        <!-- Item 3 -->
+        <div class="item" style="border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); padding: 20px; margin: 10px; width: 200px;">
+            <img src="{% static 'images/dental_floss.jpg' %}" alt="Dental Floss" style="width: 100%; height: auto; border-radius: 10px;">
+            <div style="font-size: 18px; margin: 10px 0;">Dental Floss</div>
+            <div style="font-size: 16px; color: #28a745;">Rs 75</div>
+            <div style="display: flex; align-items: center; justify-content: center; margin-top: 10px;">
+                <button onclick="decreaseQuantity('quantity3')" style="background-color: #0edc1c; color: #fff; border: none; border-radius: 50%; padding: 10px; font-size: 16px; cursor: pointer;">-</button>
+                <input type="text" id="quantity3" value="0" readonly style="width: 40px; height: 30px; text-align: center; margin: 0 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+                <button onclick="increaseQuantity('quantity3')" style="background-color: #0edc1c; color: #fff; border: none; border-radius: 50%; padding: 10px; font-size: 16px; cursor: pointer;">+</button>
+            </div>
+        </div>
+        <!-- Item 4 -->
+        <div class="item" style="border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); padding: 20px; margin: 10px; width: 200px;">
+            <img src="{% static 'images/mouthwash.jpg' %}" alt="Mouthwash" style="width: 100%; height: auto; border-radius: 10px;">
+            <div style="font-size: 18px; margin: 10px 0;">Mouthwash</div>
+            <div style="font-size: 16px; color: #28a745;">Rs 180</div>
+            <div style="display: flex; align-items: center; justify-content: center; margin-top: 10px;">
+                <button onclick="decreaseQuantity('quantity4')" style="background-color: #0edc1c; color: #fff; border: none; border-radius: 50%; padding: 10px; font-size: 16px; cursor: pointer;">-</button>
+                <input type="text" id="quantity4" value="0" readonly style="width: 40px; height: 30px; text-align: center; margin: 0 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+                <button onclick="increaseQuantity('quantity4')" style="background-color: #0edc1c; color: #fff; border: none; border-radius: 50%; padding: 10px; font-size: 16px; cursor: pointer;">+</button>
+            </div>
+        </div>
+        <!-- Item 5 -->
+        <div class="item" style="border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); padding: 20px; margin: 10px; width: 200px;">
+            <img src="{% static 'images/dental_kit.jpg' %}" alt="Dental Kit" style="width: 100%; height: auto; border-radius: 10px;">
+            <div style="font-size: 18px; margin: 10px 0;">Dental Kit</div>
+            <div style="font-size: 16px; color: #28a745;">Rs 250</div>
+            <div style="display: flex; align-items: center; justify-content: center; margin-top: 10px;">
+                <button onclick="decreaseQuantity('quantity5')" style="background-color: #0edc1c; color: #fff; border: none; border-radius: 50%; padding: 10px; font-size: 16px; cursor: pointer;">-</button>
+                <input type="text" id="quantity5" value="0" readonly style="width: 40px; height: 30px; text-align: center; margin: 0 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+                <button onclick="increaseQuantity('quantity5')" style="background-color: #0edc1c; color: #fff; border: none; border-radius: 50%; padding: 10px; font-size: 16px; cursor: pointer;">+</button>
+            </div>
+        </div>
+        <!-- Item 6 -->
+        <div class="item" style="border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); padding: 20px; margin: 10px; width: 200px;">
+            <img src="{% static 'images/floss_picks.jpg' %}" alt="Floss Picks" style="width: 100%; height: auto; border-radius: 10px;">
+            <div style="font-size: 18px; margin: 10px 0;">Floss Picks</div>
+            <div style="font-size: 16px; color: #28a745;">Rs 85</div>
+            <div style="display: flex; align-items: center; justify-content: center; margin-top: 10px;">
+                <button onclick="decreaseQuantity('quantity6')" style="background-color: #0edc1c; color: #fff; border: none; border-radius: 50%; padding: 10px; font-size: 16px; cursor: pointer;">-</button>
+                <input type="text" id="quantity6" value="0" readonly style="width: 40px; height: 30px; text-align: center; margin: 0 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+                <button onclick="increaseQuantity('quantity6')" style="background-color: #0edc1c; color: #fff; border: none; border-radius: 50%; padding: 10px; font-size: 16px; cursor: pointer;">+</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let totalItems = 0;
+
+        function increaseQuantity(id) {
+            var quantityInput = document.getElementById(id);
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+            updateCart();
+        }
+
+        function decreaseQuantity(id) {
+            var quantityInput = document.getElementById(id);
+            if (quantityInput.value > 0) {
+                quantityInput.value = parseInt(quantityInput.value) - 1;
+                updateCart();
+            }
+        }
+
+        function updateCart() {
+            totalItems = 0;
+            const quantities = document.querySelectorAll('input[type="text"]');
+            quantities.forEach(input => {
+                totalItems += parseInt(input.value);
+            });
+            document.getElementById('totalItems').innerText = totalItems;
+        }
+
+        function viewCart() {
+            alert("You have " + totalItems + " items in your cart.");
+            window.location.href = '/viewcart.html';
+        }
+    </script>
+    
+
+
+
+</body>
+</html>
+
+{% endblock %}

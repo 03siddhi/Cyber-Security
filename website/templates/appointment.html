@@ -1,0 +1,124 @@
+
+{% load static %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+ 
+
+  <!-- Favicon -->
+  <link rel="icon" href="{% static 'website/img/core-img/favicon.ico' %}">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}">
+
+</head>
+<body> <!-- ***** Header Area Start ***** -->
+  <!-- Main Header Start -->
+  <div class="main-header-area">
+   <div class="classy-nav-container breakpoint-off">
+     <div class="container">
+       <!-- Classy Menu -->
+       <nav class="classy-navbar justify-content-between" id="dentoNav">
+
+         <!-- Logo -->
+         <a class="nav-brand" href="{% url 'home' %}"><img src="{% static 'website/img/core-img/logo.png' %}" alt=""></a>
+
+         <!-- Navbar Toggler -->
+         <div class="classy-navbar-toggler">
+           <span class="navbarToggler"><span></span><span></span><span></span></span>
+         </div>
+
+         <!-- Menu -->
+         <div class="classy-menu">
+
+           <!-- Close Button -->
+           <div class="classycloseIcon">
+             <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+           </div>
+
+           <!-- Nav Start -->
+           <div class="classynav">
+             <ul id="nav">
+               
+               <li><a href="{% url 'home' %}">Home</a></li>
+               <li><a href="{% url 'pricing' %}">Pricing</a></li>
+               <li><a href="{% url 'service' %}">Service</a></li>
+              
+              
+               
+             </ul>
+           </div>
+           <!-- Nav End -->
+         </div>
+
+         <!-- Booking Now Button -->
+         
+         <a href="{% url 'logout' %}" class="btn dento-btn booking-btn">logout</a>
+       </nav>
+     </div>
+   </div>
+ </div>
+</header>
+<!-- ***** Header Area End ***** -->
+
+<!-- ***** Breadcrumb Area Start ***** -->
+  <div class="breadcumb-area bg-img bg-gradient-overlay" style="background-image: url('./static/website/img/bg-img/12.jpg');">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+          <h2 class="title">Appointment</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="breadcumb--con">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Set Appointment</li>
+              
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Breadcrumb Area End ***** -->
+
+<center>
+    <h1>Review your information</h1>
+    <strong>Your Name: </strong>{{ your_name }}<br>
+    <strong>Phone: </strong>{{ your_phone }}<br>
+    <strong>Email: </strong>your-email<br>
+    <strong>Address: </strong>{{ your_address }}<br>
+    <strong>When: </strong>{{ your_schedule }}<br>
+    <strong>Appointment Day: </strong>{{ your_date }}<br>
+    <strong>Your Message: </strong>{{ your_message }}<br>
+
+    <br><br>
+    <strong>Note: </strong> This appointment hasn't been set
+    yet. We will contact you shortly via telephone to confirm your appointment.
+    </center>
+
+    <br><br><br>
+
+
+{% endblock %}
+
+
+
+
+
